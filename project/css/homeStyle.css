@@ -1,0 +1,264 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    /*background-image: url('../img/homebg.svg');*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.mainheader{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainheader .logo img{
+    width: 250px; height: 70px;
+    padding-left: 60px;
+}
+
+.mainheader nav{
+    width: 450px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mainheader nav a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+.menubtn{
+    margin-right: 60px;
+}
+.mainheader button{
+    padding: 10px 45px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    background-image: linear-gradient(to right,#3E7E55,#7ABD87,#3E7E55);
+    border-radius: 10px;
+}
+
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .right-sec{
+    padding-right: 70px;
+}
+
+main .left-sec{
+    padding-left: 100px;
+}
+
+.left-sec h2{
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: lighter;
+    color: #242424;
+    margin-top: 100px;
+}
+
+.left-sec h1{
+    font-size: 55px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.left-sec p{
+    margin-bottom: 20px;
+}
+
+.left-sec button{
+    padding: 15px 45px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    background-image: linear-gradient(to right,#3E7E55,#7ABD87,#3E7E55);
+    border-radius: 10px;
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+button{
+    border:none;
+    border-radius:5px;
+    padding:15px 30px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#ddd;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    background-color:#fff;
+    border-radius:5px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.dropdown:hover .dropdown-options {
+    display: block;
+}
+
+.dropdown-options a {
+    display: block;
+    color: #7ABD87;
+    padding: 5px;
+    text-decoration: none;
+    padding:20px 40px;
+}
+
+.dropdown-options a:hover {
+    color: #7ABD87;
+    background-color: #ddd;
+    border-radius:5px;
+}
+
+
+/*footer*/
+.footer_section {
+    padding-top: 15px;
+    width: 100%;
+    float: left;
+    background-color: #7ABD87;
+    height: auto;
+    padding-bottom: 50px;
+    box-shadow: 0px 24px 19px -1px #7ABD87;
+    position: relative;
+}
+
+.adderss_text {
+    width: 100%;
+    float: left;
+    font-size: 24px;
+    color: #ffffff;
+    padding-bottom: 30px;
+}
+
+.map_icon {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #d6d6d6;
+    padding-bottom: 10px;
+}
+
+.paddlin_left_0 {
+    padding-left: 15px;
+}
+
+.hiphop_text_1 {
+    width: 90%;
+    color: #d6d6d6;
+    font-size: 16px;
+    margin-left: 0px;
+}
+
+.Useful_text {
+    width: 50%;
+    color: #d6d6d6;
+    font-size: 16px;
+    margin-left: 0px;
+}
+
+.Enter_text {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: transparent;
+    padding: 7px 10px;
+    margin-top: 10px;
+    border: 1px solid #cfcfd0;
+}
+
+input.Enter_text::placeholder {
+    color: #fff;
+}
+
+
+.subscribe_bt {
+    width: 170px;
+    float: left;
+    margin-top: 20px;
+}
+
+.subscribe_bt a {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    color: #7ABD87;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 7px 0px;
+    text-transform: uppercase;
+}
+
+.social_icon {
+    width: 100%;
+    float: left;
+}
+
+.social_icon ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.social_icon li {
+    float: left;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+
+.copyright_section {
+    width: 100%;
+    float: left;
+    background-color: #252525;
+    height: auto;
+}
+
+.copyright_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    margin-left: 0px;
+    color: #fff;
+    text-align: center;
+}
+
+.copyright_text a {
+    color: #ffffff;
+}
+
+.copyright_text a:hover {
+    color: #7ABD87;
+}
+.margin_90 {
+    margin: 90px 0px;
+}

@@ -23,7 +23,7 @@
                     <button> Profile</button>
                 </div>
                 <div class="dropdown-options">
-                    <a href="../commun_Screens/settingProfile.php">Setting</a>
+                    <a href="../commun_Screens/ProfileSettings/editProfile.php">Setting</a>
                     <a href="../commun_Screens/authentication/signIn.php">Logout</a>
                 </div>
             </div>
