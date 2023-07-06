@@ -1,0 +1,38 @@
+.body{
+    padding-top: 20px;
+}
+/*.medilife-book-an-appoinment-area {*/
+    /*position: relative;*/
+    /*z-index: 1;*/
+    /*margin-top: -65px; }*/
+.medilife-book-an-appoinment-area .appointment-form-content {
+    background-color: #7ABD87; }
+.medilife-book-an-appoinment-area .medilife-appointment-form {
+    background-color: #7ABD87;
+    padding: 60px 50px; }
+.medilife-book-an-appoinment-area .medilife-appointment-form select {
+    border: 2px solid #536174;
+    background-color: transparent; }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .medilife-book-an-appoinment-area .medilife-appointment-form {
+        padding: 40px 30px; } }
+@media only screen and (max-width: 767px) {
+    .medilife-book-an-appoinment-area .medilife-appointment-form {
+        padding: 30px; } }
+@media only screen and (max-width: 767px) {
+    .medilife-book-an-appoinment-area .medilife-appointment-form button[type=submit] {
+        margin-top: 15px; } }
+.medilife-book-an-appoinment-area .medilife-contact-info {
+    padding: 30px;
+    background-color: #3E7E55; }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .medilife-book-an-appoinment-area .medilife-contact-info {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding-bottom: 0;
+    }
+}
