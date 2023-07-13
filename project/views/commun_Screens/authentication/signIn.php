@@ -7,8 +7,6 @@ $d = new Doctor();
 
 if(isset($_POST['sign_in'])){
         $d->signIn($_POST);
-
-
 }
 
 ?>

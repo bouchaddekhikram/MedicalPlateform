@@ -5,20 +5,10 @@
     <link rel="stylesheet" type="text/css" href="..\..\css\homeStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <script>
-        // Get the button element
-        const button = document.getElementById('appointmentButton');
 
-        // Add a click event listener to the button
-        button.addEventListener('click', () => {
-            // Redirect to the appointment.php page
-            window.location.href = 'appointement.php';
-        });
-    </script>
 
 </head>
 <body>
-<header>
 
     <div class="mainheader">
 
@@ -39,13 +29,14 @@
         <nav>
             <a href="#">home</a>
             <a href="doctorsList.php">Doctors</a>
-            <a href="#">Medical folder</a>
+<!--            <a href="#">Medical folder</a>-->
             <a href="#contactUs">contact</a>
         </nav>
 
         <div class="menubtn">
             <button> HelpLine</button>
         </div>
+
 
 
 
@@ -70,7 +61,19 @@
             </figure>
         </section>
     </main>
-</header>
+    <header>
+
+
+        <script>
+            // Get the button element
+            const button = document.getElementById('appointmentButton');
+
+            // Add a click event listener to the button
+            button.addEventListener('click', () => {
+                // Redirect to the appointment.php page
+                window.location.href = 'appointement.php';
+            });
+        </script>
 
 
 

@@ -56,7 +56,7 @@ if(isset($_GET['id'])){
         <nav>
             <a href="patientHome.php">home</a>
             <a href="#">Doctors</a>
-            <a href="#">Medical folder</a>
+<!--            <a href="#">Medical folder</a>-->
             <a href="#contactUs">contact</a>
 
         </nav>

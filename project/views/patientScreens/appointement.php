@@ -1,5 +1,5 @@
 <?php
-include "../../classes/Patient.php";
+include "../../classes/Doctor.php";
 
 $p = new Patient();
 // On the next page
@@ -9,10 +9,26 @@ $pwd = $_SESSION['password'];
 
 $pl = $p->getPatientByCredentials($name,$pwd);
 
-if(isset($_POST['editP'])){
-    $p->updatePatient($_POST);
-    //header("location:editProfile.php");
+
+
+if (isset($_POST['speciality'])) {
+    $speciality = $_POST['speciality'];
+
+    $doctor = new Doctor();
+    $doctors = $doctor->listDoctorBySpeciality($speciality)->fetchAll();
+
+    // Prepare the HTML options for the doctors
+    $options = '<option value="">Choose a doctor</option>';
+    foreach ($doctors as $doc) {
+        $options .= '<option value="' . $doc['idDoctor'] . '">' . $doc['name'] . '</option>';
+    }
+
+    // Return the HTML options
+    echo $options;
+    exit;
 }
+
+
 ?>
 
 
@@ -50,7 +66,7 @@ if(isset($_POST['editP'])){
         <nav>
             <a href="patientHome.php">home</a>
             <a href="#">Doctors</a>
-            <a href="#">Medical folder</a>
+<!--            <a href="#">Medical folder</a>-->
             <a href="#contactUs">contact</a>
 
         </nav>
@@ -70,7 +86,7 @@ if(isset($_POST['editP'])){
 
 
 <!-- ***** Book An Appoinment Area Start ***** -->
-<form>
+
 <div class="medilife-book-an-appoinment-area">
     <div class="container">
         <div class="row">
@@ -79,28 +95,40 @@ if(isset($_POST['editP'])){
                     <div class="row no-gutters align-items-center">
                         <div class="col-12 col-lg-9">
                             <div class="medilife-appointment-form">
-                                <form action="#" method="post">
+                                <form action="#" method="post" onsubmit="validateDateTime()">
                                     <div class="row align-items-end">
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
                                                 <input type="hidden" name="idPatient" value="<?php echo $pl['idPatient']?>">
-                                                <select class="form-control" id="speciality">
-                                                    <option>Speciality 1</option>
-                                                    <option>Speciality 2</option>
-                                                    <option>Speciality 3</option>
-                                                    <option>Speciality 4</option>
-                                                    <option>Speciality 5</option>
+                                                <select class="form-control" id="speciality" name="speciality">
+                                                    <option value="-">Choose a speciality</option>
+                                                    <option value="Allergy">Allergy and immunology</option>
+                                                    <option value="Anesthesiology">Anesthesiology</option>
+                                                    <option value="Dermatology">Dermatology</option>
+                                                    <option value="Diagnostic">Diagnostic radiology</option>
+                                                    <option value="Emergency">Emergency medicine</option>
+                                                    <option value="Family">Family medicine</option>
+                                                    <option value="Internal">Internal medicine</option>
+                                                    <option value="genetics">Medical genetics</option>
+                                                    <option value="Neurology">Neurology</option>
+                                                    <option value="Nuclear">Nuclear medicine</option>
+                                                    <option value="Obstetrics">Obstetrics and gynecology</option>
+                                                    <option value="Ophthalmology">Ophthalmology</option>
+                                                    <option value="Pathology">Pathology</option>
+                                                    <option value="Pediatrics">Pediatrics</option>
+                                                    <option value="Physical">Physical medicine and rehabilitation</option>
+                                                    <option value="Preventive">Preventive medicine</option>
+                                                    <option value="Psychiatry">Psychiatry</option>
+                                                    <option value="Radiation">Radiation oncology</option>
+                                                    <option value="Surgery">Surgery</option>
+                                                    <option value="Urology">Urology</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                                <select class="form-control" id="doctors">
-                                                    <option>Doctors 1</option>
-                                                    <option>Doctors 2</option>
-                                                    <option>Doctors 3</option>
-                                                    <option>Doctors 4</option>
-                                                    <option>Doctors 5</option>
+                                                <select class="form-control" id="doctors" name="doctors">
+                                                    <option value="">Choose a doctor</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -116,17 +144,17 @@ if(isset($_POST['editP'])){
                                         </div>
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="name" id="name" placeholder="Name">
+                                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="name" id="name" placeholder="Name" value="<?php echo $pl['name']?>">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="number" id="number" placeholder="Phone">
+                                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="number" id="number" placeholder="Phone" value="<?php echo $pl['phone']?>">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                                <input type="email" class="form-control border-top-0 border-right-0 border-left-0" name="email" id="email" placeholder="E-mail">
+                                                <input type="email" class="form-control border-top-0 border-right-0 border-left-0" name="email" id="email" placeholder="E-mail" value="<?php echo $pl['name']?>@gmail.com">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-7">
@@ -153,12 +181,12 @@ if(isset($_POST['editP'])){
                                 <!-- Single Contact Info -->
                                 <div class="single-contact-info mb-30">
                                     <img src="../../img/envelope.png" alt="">
-                                    <p>0080 673 729 766 <br>contact@business.com</p>
+                                    <p>+216 22 222 222 <br>doctors@gmail.com</p>
                                 </div>
                                 <!-- Single Contact Info -->
                                 <div class="single-contact-info">
                                     <img src="../../img/map-pin.png" alt="">
-                                    <p>Lamas Str, no 14-18 <br>41770 Miami</p>
+                                    <p>Tunisia<br>4180 Petite Arianah</p>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +196,68 @@ if(isset($_POST['editP'])){
         </div>
     </div>
 </div>
-</form>
+
+
 <!-- ***** Book An Appoinment Area End ***** -->
 </body>
 </html>
+
+
+
+<!-- script function to show the adequate doctors to a specialty  -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Get the select elements
+        const specialitySelect = document.getElementById('speciality');
+        const doctorsSelect = document.getElementById('doctors');
+
+        // Add an event listener to the speciality select element
+        specialitySelect.addEventListener('change', function() {
+            const selectedSpeciality = specialitySelect.value;
+
+            // Send an AJAX request to get the doctors based on the selected speciality
+            $.ajax({
+                type: 'POST',
+                url: 'appointement.php',
+                data: { speciality: selectedSpeciality },
+                success: function(response) {
+                    // Update the doctors select menu with the returned options
+                    doctorsSelect.innerHTML = response;
+                },
+                error: function() {
+                    // Handle error if the request fails
+                    console.log('Error occurred while fetching doctors.');
+                }
+            });
+        });
+    });
+
+    function validateDateTime() {
+        // Get the values of the date and time fields
+        const dateInput = document.getElementById('date').value;
+        const timeInput = document.getElementById('time').value;
+
+        // Create Date objects to validate the input
+        const currentDate = new Date();
+        const inputDate = new Date(dateInput + ' ' + timeInput);
+
+        // Compare the input date with the current date
+        if (inputDate <= currentDate) {
+            alert('Please select a future date and time.');
+            return false;
+        }
+
+        // Check if the date and time values are valid
+        if (!dateInput || !timeInput) {
+            alert('Please enter both the date and time.');
+            return false;
+        }
+
+        // Return true if the input is valid
+        return true;
+    }
+
+</script>
+
+
